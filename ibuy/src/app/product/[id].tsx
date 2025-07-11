@@ -1,9 +1,9 @@
-﻿import { View, StyleSheet, TouchableOpacity, Text, Alert } from 'react-native';
+﻿import { View, StyleSheet, Text, Alert, TouchableOpacity } from 'react-native';
 import { Link, router, useLocalSearchParams } from 'expo-router';
  
-export default function Signup() {
+export default function Product() {
 
-  const { id, name } = useLocalSearchParams()
+    const { id } = useLocalSearchParams();
 
   function back() {
     if (!router.canGoBack()) {
@@ -18,14 +18,11 @@ export default function Signup() {
 
   return (
     <View style={styles.container}>
+        <Text style={styles.back}>ID do produto: { id }</Text>
 
-      <Text style={styles.title}>
-        {id} - {name}
-      </Text>
-
-      <TouchableOpacity activeOpacity={0.7} onPress={back}> 
-        <Text style={styles.back}>Voltar</Text>
-      </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.7} onPress={back}> 
+            <Text style={styles.back}>Voltar</Text>
+        </TouchableOpacity>
     </View>
   )
 }
